@@ -1,22 +1,83 @@
-.App {
+body {
+  box-sizing: border-box;
+}
+
+.game {
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.game__info {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.game__state {
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.game__area {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 494px;
+  position: relative;
+  line-height: 0%;
+}
+
+/* 遊戲盤面 CSS */
+.game__pieces {
+  box-sizing: border-box; /* windows 需要下這個才能置中 */
+  display: inline-flex;
+  height: 26px;
+  width: 26px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #09d3ac;
+.game__pieces--white, .game__pieces--black, .game__pieces--null {
+  width: 17px;
+  height: 17px;
+}
+
+.game__pieces--white {
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.game__pieces--black {
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.game__pieces--null {
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.game__pieces--null:hover {
+  border: 1px solid orange;
+  border-radius: 50%;
+  background-color: orange;
+  z-index: 200;
+}
+
+/* 棋盤 CSS */
+.game__lattice {
+  border: 1px solid #000;
+  width: 468px;
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  z-index: -100;
+}
+
+.game__squares {
+  border: 1px solid #000;
+  height: 24px;
+  width: 24px;
+  display: inline-block;
 }
